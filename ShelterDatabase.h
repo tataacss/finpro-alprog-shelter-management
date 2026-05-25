@@ -43,11 +43,9 @@ public:
 
         while (cur->next) {
             if (cur->data->getPriorityScore() < cur->next->data->getPriorityScore()) {
-                // tukar data antar node
                 ShelterAnimal* temp = cur->data;
                 cur->data = cur->next->data;
                 cur->next->data = temp;
-
                 swapped = true;
             }
             cur = cur->next;
@@ -60,7 +58,6 @@ public:
 
     Node* newNode = new Node(animal);
 
-    // tambah node di akhir linked list
     if (!head) {
         head = newNode;
     } else {
@@ -70,8 +67,6 @@ public:
         }
         cur->next = newNode;
     }
-
-    // sorting manual dengan Bubble Sort
     sortByPriority();
 }
 
